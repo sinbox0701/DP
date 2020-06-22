@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<fx:root fx:id="root" prefHeight="600.0" prefWidth="800.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar layoutX="314.0" layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem fx:id="menuNew" mnemonicParsing="false" onAction="#handleMenuNew" text="New" />
+						<SeparatorMenuItem mnemonicParsing="false" />
+						<MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#handleMenuExit" text="Exit" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Shape">
+					<items>
+						<RadioMenuItem fx:id="menuLine" mnemonicParsing="false" onAction="#handleMenuLine" text="Line">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggleGroup1" />
+                     </toggleGroup></RadioMenuItem>
+						<RadioMenuItem fx:id="menuPencil" mnemonicParsing="false" onAction="#handleMenuPencil" selected="true" text="Pencil" toggleGroup="$toggleGroup1" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem fx:id="menuMove" mnemonicParsing="false" onAction="#handleMenuMove" text="Move" />
+						<MenuItem fx:id="menuDelete" mnemonicParsing="false" onAction="#handleMenuDelete" text="Delete" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Setting">
+					<items>
+						<MenuItem fx:id="menuStrokeWidth" mnemonicParsing="false" onAction="#handleMenuStrokeWidth" text="Stroke Width" />
+                  		<MenuItem fx:id="menuStrokeColor" mnemonicParsing="false" onAction="#handleMenuStrokeColor" text="Stroke Color" />
+						<MenuItem fx:id="menuFillColor" mnemonicParsing="false" onAction="#handleMenuFillColor" text="Fill Color" />
+						<CheckMenuItem fx:id="menuCheckStroke" mnemonicParsing="false" onAction="#handleMenuCheckStroke" selected="true" text="Storke" />
+						<CheckMenuItem fx:id="menuCheckFill" mnemonicParsing="false" onAction="#handleMenuCheckFill" text="Fill" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#handleMenuAbout" text="About" />
+					</items>
+				</Menu>
+			</menus>
+      </MenuBar>
+      <Pane fx:id="drawPane" onMouseDragged="#handleMouseDragged" onMouseEntered="#handleMouseEntered" onMouseExited="#handleMouseExited" onMousePressed="#handleMousePressed" onMouseReleased="#handleMouseReleased" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="26.0" />
+      <HBox layoutX="334.0" layoutY="486.0" prefHeight="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label fx:id="lblWinSize" prefWidth="100.0" text="Window Size" />
+            <Label fx:id="lblEditState" prefWidth="100.0" text="Edit State" />
+            <Label fx:id="lblShapeCount" prefWidth="100.0" text="Shape Count" />
+         </children></HBox>
+   </children>
+</fx:root>
